@@ -1,3 +1,9 @@
+<script setup>
+import MainMenu from './components/mainMenu.vue'
+</script>
+
 <template>
-  <HelloWorld />
+  <MainMenu v-if="!gameStarted" @start="startGame" />
 </template>
+
+<style scoped></style>
