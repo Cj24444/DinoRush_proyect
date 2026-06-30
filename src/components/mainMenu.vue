@@ -12,3 +12,17 @@ const emit = defineEmits(['start'])
   </div>
 </template>
 
+<style scoped>
+.menu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  height: 100vh;
+}
+
+button {
+  margin-top: 20px;
+}
+</style>
