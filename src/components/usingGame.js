@@ -18,6 +18,15 @@ export function useGame() {
         jumping = true
     }
 
+    function checkCollision(){
+
+        const playerLeft = 100
+        const playerRight = 140
+
+        const obstacleLeft = obstacleX.value
+        const obstacleRight = obstacleX.value + 30
+
+    }
 
     function update() {
 
@@ -32,6 +41,11 @@ export function useGame() {
 
         obstacleX.value -= 6
 
+        if(obstacleX.value < -30){
+            obstacleX.value = 900
+        }
+
+        checkCollision()
         requestAnimationFrame(update)
     }
 
