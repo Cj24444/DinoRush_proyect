@@ -6,7 +6,7 @@ const emit = defineEmits(['start'])
   <div class="menu">
     <h1>DinoRush</h1>
 
-    <p>Esquiva los obstáculos, si puedes >:D</p>
+    <p>Usa la barra espaciadora o la flecha hacia arriba para saltar</p>
 
     <button @click="emit('start')">Jugar</button>
   </div>
