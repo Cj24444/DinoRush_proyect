@@ -6,6 +6,7 @@ import { useGame } from "./usingGame"
 const {
     playerY,
     obstacleX,
+    gameOver,
     jump
 } = useGame()
 
@@ -36,6 +37,12 @@ onUnmounted(()=>{
         class="obstacle"
         :style="{left:obstacleX+'px'}"
       ></div>
+      <div
+        v-if="gameOver"
+        class="gameOver"
+      >
+        <h1>GAME OVER</h1>
+      </div>
 
   </div>
 </template>
@@ -77,5 +84,16 @@ onUnmounted(()=>{
     height:60px;
     background:#2c3e50;
 }
+.gameOver{
+    position:absolute;
+    inset:0;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    background:rgba(0,0,0,.4);
+    color:white;
+}
+
 
 </style>

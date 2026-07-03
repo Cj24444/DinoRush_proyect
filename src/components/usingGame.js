@@ -7,6 +7,7 @@ export function useGame() {
     const playerY = ref(GROUND)
     const velocity = ref(0)
     const obstacleX = ref(900)
+    const gameOver = ref(false)
     const gravity = -0.7
     const jumpForce = 16
     let jumping = false
@@ -26,9 +27,23 @@ export function useGame() {
         const obstacleLeft = obstacleX.value
         const obstacleRight = obstacleX.value + 30
 
+        const horizontal =
+            obstacleRight > playerLeft &&
+            obstacleLeft < playerRight
+
+        const vertical =
+            playerY.value <= 70
+
+        if(horizontal && vertical){
+            gameOver.value = true
+
+        }
     }
 
     function update() {
+        if(gameOver.value){
+            return
+        }
 
         velocity.value += gravity
         playerY.value += velocity.value
@@ -54,6 +69,7 @@ export function useGame() {
     return {
         playerY,
         obstacleX,
+        gameOver,
         jump
     }
 
