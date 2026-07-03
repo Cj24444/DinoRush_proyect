@@ -18,6 +18,15 @@ export function useGame() {
         velocity.value = jumpForce
         jumping = true
     }
+    function restart(){
+        playerY.value = GROUND
+        velocity.value = 0
+        obstacleX.value = 900
+        jumping = false
+        gameOver.value = false
+
+        update()
+    }
 
     function checkCollision(){
 
@@ -70,7 +79,8 @@ export function useGame() {
         playerY,
         obstacleX,
         gameOver,
-        jump
+        jump,
+        restart
     }
 
 }

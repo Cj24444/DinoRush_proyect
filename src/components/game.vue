@@ -7,13 +7,17 @@ const {
     playerY,
     obstacleX,
     gameOver,
-    jump
+    jump,
+    restart
 } = useGame()
 
 
 function keyDown(e){
     if(e.code === "Space" || e.code === "ArrowUp"){
         jump()
+    }
+    if(e.code==="KeyR"){
+        restart()
     }
 }
 
@@ -42,6 +46,7 @@ onUnmounted(()=>{
         class="gameOver"
       >
         <h1>GAME OVER</h1>
+        <p>Presiona R para reiniciar</p>
       </div>
 
   </div>
