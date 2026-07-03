@@ -6,6 +6,7 @@ export function useGame() {
 
     const playerY = ref(GROUND)
     const velocity = ref(0)
+    const obstacleX = ref(900)
     const gravity = -0.7
     const jumpForce = 16
     let jumping = false
@@ -17,7 +18,9 @@ export function useGame() {
         jumping = true
     }
 
+
     function update() {
+
         velocity.value += gravity
         playerY.value += velocity.value
 
@@ -26,6 +29,9 @@ export function useGame() {
             velocity.value = 0
             jumping = false
         }
+
+        obstacleX.value -= 6
+
         requestAnimationFrame(update)
     }
 
@@ -33,6 +39,7 @@ export function useGame() {
 
     return {
         playerY,
+        obstacleX,
         jump
     }
 

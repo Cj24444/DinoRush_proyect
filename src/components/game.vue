@@ -5,6 +5,7 @@ import { useGame } from "./usingGame"
 
 const {
     playerY,
+    obstacleX,
     jump
 } = useGame()
 
@@ -31,6 +32,11 @@ onUnmounted(()=>{
           class="player"
           :style="{ bottom: `${playerY}px` }"
       ></div>
+      <div
+        class="obstacle"
+        :style="{left:obstacleX+'px'}"
+      ></div>
+
   </div>
 </template>
 
@@ -62,6 +68,14 @@ onUnmounted(()=>{
     width:40px;
     height:40px;
     background:#2ecc71;
+}
+
+.obstacle{
+    position:absolute;
+    bottom:40px;
+    width:30px;
+    height:60px;
+    background:#2c3e50;
 }
 
 </style>
