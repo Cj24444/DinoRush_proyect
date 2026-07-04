@@ -2,11 +2,16 @@
 
 import { onMounted, onUnmounted } from "vue"
 import { useGame } from "./usingGame"
+import scores from "./scores.vue"
 
 const {
     playerY,
     obstacleX,
     gameOver,
+
+    score,
+    highScore,
+
     jump,
     restart
 } = useGame()
@@ -31,6 +36,10 @@ onUnmounted(()=>{
 </script>
 
 <template>
+    <scores
+    :score="score"
+    :highScore="highScore"
+    />
   <div class="game">
       <div class="ground"></div>
       <div

@@ -12,6 +12,9 @@ export function useGame() {
     const jumpForce = 16
     let jumping = false
 
+    const score = ref(0)
+    const highScore = ref(0)
+
     function jump() {
 
         if (jumping) return
@@ -24,6 +27,8 @@ export function useGame() {
         obstacleX.value = 900
         jumping = false
         gameOver.value = false
+
+        score.value = 0
 
         update()
     }
@@ -67,6 +72,12 @@ export function useGame() {
 
         if(obstacleX.value < -30){
             obstacleX.value = 900
+
+            score.value++
+
+            if(score.value > highScore.value){
+                highScore.value = score.value
+            }
         }
 
         checkCollision()
@@ -80,7 +91,9 @@ export function useGame() {
         obstacleX,
         gameOver,
         jump,
-        restart
+        restart,
+        score,
+        highScore
     }
 
 }
