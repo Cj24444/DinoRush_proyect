@@ -92,6 +92,10 @@ export function useGame() {
 
     update()
 
+    function stop() {
+        cancelAnimationFrame(animationFrameId)
+    }
+    
     return {
         playerY,
         obstacleX,
@@ -99,7 +103,8 @@ export function useGame() {
         jump,
         restart,
         score,
-        highScore
+        highScore,
+        stop
     }
 
 }

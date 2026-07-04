@@ -33,6 +33,11 @@ onMounted(()=>{
 onUnmounted(()=>{
     window.removeEventListener("keydown",keyDown)
 })
+
+onUnmounted(()=>{
+    window.removeEventListener("keydown", keyDown)
+    stop() 
+})
 </script>
 
 <template>
