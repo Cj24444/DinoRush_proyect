@@ -14,6 +14,7 @@ export function useGame() {
 
     const score = ref(0)
     const highScore = ref(0)
+    const speed = ref(6)
 
     function jump() {
 
@@ -29,6 +30,7 @@ export function useGame() {
         gameOver.value = false
 
         score.value = 0
+        speed.value = 6
 
         update()
     }
@@ -68,12 +70,13 @@ export function useGame() {
             jumping = false
         }
 
-        obstacleX.value -= 6
+        obstacleX.value -= speed.value
 
         if(obstacleX.value < -30){
-            obstacleX.value = 900
+            obstacleX.value = 900 + Math.random() * 300
 
             score.value++
+            speed.value += 0.15
 
             if(score.value > highScore.value){
                 highScore.value = score.value
