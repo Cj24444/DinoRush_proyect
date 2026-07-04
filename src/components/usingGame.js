@@ -12,6 +12,8 @@ export function useGame() {
     const jumpForce = 16
     let jumping = false
 
+    let animationFrameId = null
+
     const score = ref(0)
     const highScore = ref(0)
     const speed = ref(6)
@@ -23,6 +25,7 @@ export function useGame() {
         jumping = true
     }
     function restart(){
+        cancelAnimationFrame(animationFrameId)
         playerY.value = GROUND
         velocity.value = 0
         obstacleX.value = 900
@@ -84,7 +87,7 @@ export function useGame() {
         }
 
         checkCollision()
-        requestAnimationFrame(update)
+        animationFrameId = requestAnimationFrame(update)
     }
 
     update()
