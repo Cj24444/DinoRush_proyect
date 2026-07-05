@@ -4,6 +4,7 @@ const emit = defineEmits(['start'])
 
 <template>
   <div class="menu">
+<<<<<<< HEAD
     <h1 class="pixel-title">DINO-RUSH</h1>
 
     <div class="instructions-box">
@@ -12,6 +13,16 @@ const emit = defineEmits(['start'])
     </div>
 
     <button class="btn-retro" @click="emit('start')">INSERT COIN / JUGAR</button>
+=======
+    <h1 class="neon-title">DINO_RUSH_</h1>
+
+    <div class="modern-panel">
+      <p> Barra Espaciadora / Flecha Arriba para saltar</p>
+      <p> Presiona R para reiniciar el sistema</p>
+    </div>
+
+    <button class="btn-neon" @click="emit('start')">INICIAR CONEXIÓN</button>
+>>>>>>> feature/menuB
   </div>
 </template>
 
@@ -22,38 +33,45 @@ const emit = defineEmits(['start'])
   align-items: center;
   justify-content: center;
   height: 100vh;
-  background-color: #2b2b2b;
-  font-family: 'Courier New', Courier, monospace;
-  color: #54b054;
+  background: radial-gradient(circle, #1a0b2e 0%, #05010d 100%);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #e0d5ff;
 }
 
-.pixel-title {
-  font-size: 3rem;
-  letter-spacing: 4px;
-  text-shadow: 4px 4px 0px #000;
-  margin-bottom: 10px;
+.neon-title {
+  font-size: 4rem;
+  font-weight: 900;
+  background: linear-gradient(45deg, #ff007f, #7f00ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
-.instructions-box {
-  border: 4px dashed #54b054;
-  padding: 15px;
-  background: #1a1a1a;
+.modern-panel {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  padding: 20px 40px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
   text-align: center;
 }
 
 button {
-  margin-top: 30px;
-  padding: 12px 24px;
-  background-color: #54b054;
-  color: #000;
-  border: 4px solid #fff;
+  margin-top: 35px;
+  padding: 15px 35px;
+  background: transparent;
+  color: #00ffff;
+  border: 2px solid #00ffff;
+  border-radius: 30px;
   font-weight: bold;
+  letter-spacing: 2px;
   cursor: pointer;
-  box-shadow: 5px 5px 0px #000;
+  transition: all 0.3s ease;
+
 }
 
-button:active {
-  transform: translate(3px, 3px);
-  box-shadow: 2px 2px 0px #000;
+button:hover {
+  background: #00ffff;
+  color: #000;
+  transform: scale(1.05);
 }
 </style>
