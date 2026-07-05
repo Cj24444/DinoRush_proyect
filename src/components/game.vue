@@ -109,7 +109,7 @@ onUnmounted(()=>{
 .dino-sprite-1 { background-image: url('../sprites/sprite_dino1.png'); }
 .dino-sprite-2 { background-image: url('../sprites/sprite_dino2.png'); }
 .dino-sprite-3 { background-image: url('../sprites/sprite_dino3.png'); }
-.dino-sprite-4 { background-image: url('../sprites/sprite_dino4.png'); }
+.dino-sprite-4 { background-image: url('../sprites/sprite_dino4Muerte.png'); }
 
 .obstacle{
     position:absolute;

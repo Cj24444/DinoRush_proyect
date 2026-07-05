@@ -23,8 +23,7 @@ export function useGame() {
     let animationTimer = 0
 
     function jump() {
-
-        if (jumping) return
+        if (jumping || gameOver.value) return
         velocity.value = jumpForce
         jumping = true
         dinoSpriteIndex.value = 2
@@ -59,11 +58,11 @@ export function useGame() {
             obstacleLeft < playerRight
 
         const vertical =
-            playerY.value <= 105
+            playerY.value <= 125
 
         if(horizontal && vertical){
-            gameOver.value = true
             dinoSpriteIndex.value = 4
+            gameOver.value = true
 
         }
     }
@@ -75,16 +74,19 @@ export function useGame() {
         }
 
         animationTimer++
-        // Cambia de pierna 8frames 
-        if (animationTimer % 8 === 0) {
+        // Cambia de pierna frames 
+        if (animationTimer % 16 === 0) {
             dinoSpriteIndex.value = dinoSpriteIndex.value === 1 ? 3 : 1
         }
     }
 
     function update() {
+        checkCollision()
+
         if(gameOver.value){
             return
         }
+
         animateDino()
 
         velocity.value += gravity
@@ -111,7 +113,6 @@ export function useGame() {
             }
         }
 
-        checkCollision()
         animationFrameId = requestAnimationFrame(update)
     }
 
