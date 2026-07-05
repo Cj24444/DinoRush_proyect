@@ -4,16 +4,6 @@ const emit = defineEmits(['start'])
 
 <template>
   <div class="menu">
-<<<<<<< HEAD
-    <h1 class="pixel-title">DINO-RUSH</h1>
-
-    <div class="instructions-box">
-      <p> [SPACE] / [^] : SALTAR</p>
-      <p> [R] : REINICIAR</p>
-    </div>
-
-    <button class="btn-retro" @click="emit('start')">INSERT COIN / JUGAR</button>
-=======
     <h1 class="neon-title">DINO_RUSH_</h1>
 
     <div class="modern-panel">
@@ -22,7 +12,6 @@ const emit = defineEmits(['start'])
     </div>
 
     <button class="btn-neon" @click="emit('start')">INICIAR CONEXIÓN</button>
->>>>>>> feature/menuB
   </div>
 </template>
 
