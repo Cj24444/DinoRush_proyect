@@ -135,6 +135,13 @@ onUnmounted(()=>{
     align-items:center;
     background:rgba(0,0,0,.4);
     color:white;
+    font-family: sans-serif;
+    backdrop-filter: blur(2px);
+    animation: fadeIn 0.3s ease-in-out;
+}
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
 
 
