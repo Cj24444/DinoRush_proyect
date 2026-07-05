@@ -4,9 +4,10 @@ const emit = defineEmits(['start'])
 
 <template>
   <div class="menu">
-    <h1>DinoRush</h1>
+    <h1>Dino-Rush</h1>
 
     <p>Usa la barra espaciadora o la flecha hacia arriba para saltar</p>
+    <p>Presiona R para reiniciar</p>
 
     <button @click="emit('start')">Jugar</button>
   </div>
