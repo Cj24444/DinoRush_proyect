@@ -1,6 +1,6 @@
 <script setup>
 
-import { onMounted, onUnmounted } from "vue"
+import { onMounted, onUnmounted, computed } from "vue"
 import { useGame } from "./usingGame"
 import scores from "./scores.vue"
 
@@ -12,8 +12,12 @@ const {
     score,
     highScore,
 
+    dinoSpriteIndex,
+    currentCactusType,
+
     jump,
-    restart
+    restart, 
+    stop
 } = useGame()
 
 
@@ -26,12 +30,11 @@ function keyDown(e){
     }
 }
 
+const dinoClass = computed(() => `dino-sprite-${dinoSpriteIndex.value}`)
+const cactusClass = computed(() => `cactus-sprite-${currentCactusType.value}`)
+
 onMounted(()=>{
     window.addEventListener("keydown",keyDown)
-})
-
-onUnmounted(()=>{
-    window.removeEventListener("keydown",keyDown)
 })
 
 onUnmounted(()=>{
@@ -49,10 +52,12 @@ onUnmounted(()=>{
       <div class="ground"></div>
       <div
           class="player"
+          :class="dinoClass"
           :style="{ bottom: `${playerY}px` }"
       ></div>
       <div
         class="obstacle"
+        :class="cactusClass"
         :style="{left:obstacleX+'px'}"
       ></div>
       <div
@@ -93,16 +98,29 @@ onUnmounted(()=>{
     left:100px;
     width:40px;
     height:40px;
-    background:#2ecc71;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: bottom;
+    transition: bottom 0.05s linear;
 }
+.dino-sprite-1 { background-image: url('../sprites/sprite_dino1.png'); }
+.dino-sprite-2 { background-image: url('../sprites/sprite_dino2.png'); }
+.dino-sprite-3 { background-image: url('../sprites/sprite_dino3.png'); }
+.dino-sprite-4 { background-image: url('../sprites/sprite_dino4.png'); }
 
 .obstacle{
     position:absolute;
     bottom:40px;
     width:30px;
     height:60px;
-    background:#2c3e50;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: bottom;
 }
+
+.cactus-sprite-1 { background-image: url('../sprites/cactus_sprite1.png'); }
+.cactus-sprite-2 { background-image: url('../sprites/cactus_sprite2.png'); }
+.cactus-sprite-3 { background-image: url('../sprites/cactus_sprite3.png'); }
 .gameOver{
     position:absolute;
     inset:0;

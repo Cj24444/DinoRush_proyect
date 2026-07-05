@@ -18,11 +18,16 @@ export function useGame() {
     const highScore = ref(0)
     const speed = ref(6)
 
+    const dinoSpriteIndex = ref(2) //1 izq, 3 der, 2 parado, 4 muerte
+    const currentCactusType = ref(1) 
+    let animationTimer = 0
+
     function jump() {
 
         if (jumping) return
         velocity.value = jumpForce
         jumping = true
+        dinoSpriteIndex.value = 2
     }
     function restart(){
         cancelAnimationFrame(animationFrameId)
@@ -35,27 +40,44 @@ export function useGame() {
         score.value = 0
         speed.value = 6
 
+        dinoSpriteIndex.value = 2
+        currentCactusType.value = Math.floor(Math.random() * 3) + 1
+
         update()
     }
 
     function checkCollision(){
 
-        const playerLeft = 100
-        const playerRight = 140
+        const playerLeft = 110
+        const playerRight = 135
 
-        const obstacleLeft = obstacleX.value
-        const obstacleRight = obstacleX.value + 30
+        const obstacleLeft = obstacleX.value +5
+        const obstacleRight = obstacleX.value + 25
 
         const horizontal =
             obstacleRight > playerLeft &&
             obstacleLeft < playerRight
 
         const vertical =
-            playerY.value <= 70
+            playerY.value <= 85
 
         if(horizontal && vertical){
             gameOver.value = true
+            dinoSpriteIndex.value = 4
 
+        }
+    }
+
+    function animateDino() {
+        if (jumping) {
+            dinoSpriteIndex.value = 2 // t pose 
+            return
+        }
+
+        animationTimer++
+        // Cambia de pierna 8frames 
+        if (animationTimer % 8 === 0) {
+            dinoSpriteIndex.value = dinoSpriteIndex.value === 1 ? 3 : 1
         }
     }
 
@@ -63,6 +85,7 @@ export function useGame() {
         if(gameOver.value){
             return
         }
+        animateDino()
 
         velocity.value += gravity
         playerY.value += velocity.value
@@ -78,6 +101,8 @@ export function useGame() {
         if(obstacleX.value < -30){
             obstacleX.value = 900 + Math.random() * 300
 
+            currentCactusType.value = Math.floor(Math.random() * 3) + 1
+
             score.value++
             speed.value += 0.15
 
@@ -90,11 +115,11 @@ export function useGame() {
         animationFrameId = requestAnimationFrame(update)
     }
 
-    update()
-
     function stop() {
         cancelAnimationFrame(animationFrameId)
     }
+
+    update()
     
     return {
         playerY,
@@ -104,6 +129,8 @@ export function useGame() {
         restart,
         score,
         highScore,
+        dinoSpriteIndex,
+        currentCactusType,
         stop
     }
 
