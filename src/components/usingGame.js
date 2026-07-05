@@ -48,18 +48,18 @@ export function useGame() {
 
     function checkCollision(){
 
-        const playerLeft = 110
-        const playerRight = 135
+        const playerLeft = 145
+        const playerRight = 175
 
-        const obstacleLeft = obstacleX.value +5
-        const obstacleRight = obstacleX.value + 25
+        const obstacleLeft = obstacleX.value +15
+        const obstacleRight = obstacleX.value + 75
 
         const horizontal =
             obstacleRight > playerLeft &&
             obstacleLeft < playerRight
 
         const vertical =
-            playerY.value <= 85
+            playerY.value <= 105
 
         if(horizontal && vertical){
             gameOver.value = true
@@ -98,7 +98,7 @@ export function useGame() {
 
         obstacleX.value -= speed.value
 
-        if(obstacleX.value < -30){
+        if(obstacleX.value < -75){
             obstacleX.value = 900 + Math.random() * 300
 
             currentCactusType.value = Math.floor(Math.random() * 3) + 1

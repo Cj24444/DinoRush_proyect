@@ -91,17 +91,20 @@ onUnmounted(()=>{
     height:40px;
     background:#6f4e37;
     bottom:0px;
+    z-index: 2;
 }
 
 .player{
     position:absolute;
     left:100px;
-    width:40px;
-    height:40px;
+    width:100px;
+    height:100px;
     background-size: contain;
     background-repeat: no-repeat;
     background-position: bottom;
+    z-index: 3;
     transition: bottom 0.05s linear;
+
 }
 .dino-sprite-1 { background-image: url('../sprites/sprite_dino1.png'); }
 .dino-sprite-2 { background-image: url('../sprites/sprite_dino2.png'); }
@@ -110,12 +113,14 @@ onUnmounted(()=>{
 
 .obstacle{
     position:absolute;
-    bottom:40px;
-    width:30px;
-    height:60px;
+    bottom:28px;
+    width:75px;
+    height:150px;
     background-size: contain;
     background-repeat: no-repeat;
     background-position: bottom;
+    z-index: 1;
+
 }
 
 .cactus-sprite-1 { background-image: url('../sprites/cactus_sprite1.png'); }
