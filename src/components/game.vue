@@ -48,8 +48,11 @@ onUnmounted(()=>{
     :score="score"
     :highScore="highScore"
     />
-  <div class="game">
-      <div class="ground"></div>
+  <div class="game" :class="{ 'game-over-screen': gameOver }">
+
+      <div class="sky-clouds" :class="{ 'paused': gameOver }"></div>
+      
+      <div class="ground" :class="{ 'paused': gameOver }"></div>
       <div
           class="player"
           :class="dinoClass"
@@ -82,16 +85,49 @@ onUnmounted(()=>{
     margin:auto;
     overflow:hidden;
     background:#ccefff;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
 
+}
+.sky-clouds {
+    position: absolute;
+    top: 30px; 
+    width: 200%; 
+    height: 80px; 
+    background-image: url('../sprites/nube_sprite.png');
+    background-repeat: repeat-x;
+    background-size: auto 100%; 
+    z-index: 1; 
+    animation: moveClouds 10s linear infinite;
+}
+
+.sky-clouds.paused {
+    animation-play-state: paused;
+}
+
+@keyframes moveClouds {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); } /* Se desplaza exactamente la mitad */
 }
 
 .ground{
     position:absolute;
-    width:100%;
+    width:200%;
     height:40px;
-    background:#6f4e37;
-    bottom:0px;
+    background-image: url('../sprites/sprite_arena.png');
+    background-repeat: repeat-x;
+    bottom: 0px;
     z-index: 2;
+    animation: moveGround 4s linear infinite;
+}
+
+.ground.paused {
+    animation-play-state: paused;
+}
+
+@keyframes moveGround {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
 }
 
 .player{
