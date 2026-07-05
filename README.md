@@ -10,7 +10,7 @@ El proyecto tiene como objetivo aplicar buenas prácticas de desarrollo utilizan
 
 ## Estado del proyecto
 
-En desarrollo.
+Terminado.
 
 ## Tecnologías utilizadas
 
@@ -48,3 +48,7 @@ npm run dev
 ## Autor
 
 Proyecto desarrollado por Cynthia Cortez para el ramo de Introducción a Repositorios de código distribuido.
+
+## Descargo de responsabilidad
+
+Uso de inteligencia artificial como ayuda en parte de la escritura del código.
