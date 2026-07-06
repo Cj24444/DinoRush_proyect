@@ -45,6 +45,20 @@ npm install
 npm run dev
 ```
 
+## Imágenes de ejemplo
+
+Menú inicial:
+<img width="822" height="815" alt="Captura desde 2026-07-05 22-12-15" src="https://github.com/user-attachments/assets/1d30e56e-e8b0-4c91-8a6c-e29c4cc96a1b" />
+
+
+Juego en ejecución:
+<img width="938" height="815" alt="Captura desde 2026-07-05 22-14-07" src="https://github.com/user-attachments/assets/f8172119-fd1b-4188-b3be-df710c8a75c1" />
+
+
+Perder partida:
+<img width="938" height="815" alt="image" src="https://github.com/user-attachments/assets/a910f053-6db8-4361-ad9d-08eacb18260f" />
+
+
 ## Autor
 
 Proyecto desarrollado por Cynthia Cortez para el ramo de Introducción a Repositorios de código distribuido.
