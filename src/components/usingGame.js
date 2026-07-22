@@ -1,7 +1,7 @@
 import { ref } from "vue"
-import { useHighScore } from "./useHighScore"
-import { useObstacles } from "./useObstacles"
-import { useCollision } from "./useCollision"
+import { useHighScore } from "../composables/useHighScore"
+import { useObstacles } from "../composables/useObstacles"
+import { useCollision } from "../composables/useCollision"
 
 const GROUND = 40
 
@@ -36,7 +36,7 @@ export function useGame() {
     let animationTimer = 0
 
     // --- Composables externos ---
-    const { highScore, updateHighScore, resetHighScore } = useHighScore()
+    const { highScore, updateHighScore } = useHighScore()
     const { obstacleX, currentCactusType, moveObstacle, resetObstacle } = useObstacles(speed)
     const { checkCollision } = useCollision()
 
